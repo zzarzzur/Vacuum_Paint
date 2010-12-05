@@ -29,15 +29,23 @@ class MyCanvas extends ControlWindowCanvas {
     }
       if(TipValue == 5) {
       theApplet.strokeWeight(0);
-      theApplet.image(star1, 200, 300);
+      theApplet.image(star1, 200 - (SizeValue/2), 300 - (SizeValue/2), SizeValue, SizeValue);
     }
       if(TipValue == 6) {
       theApplet.strokeWeight(0);
-      theApplet.image(star2, 200, 300);
+      theApplet.image(star2, 200 - (SizeValue/2), 300 - (SizeValue/2), SizeValue, SizeValue);
     }
           if(TipValue == 7) {
       theApplet.strokeWeight(0);
-      theApplet.image(clver, 200, 300);
+      theApplet.image(clver, 200 - (SizeValue/2), 300 - (SizeValue/2), SizeValue, SizeValue);
+    }
+          if(TipValue == 8) {
+      theApplet.strokeWeight(0);
+      theApplet.image(airplane1, 200 - (SizeValue/2), 300 - (SizeValue/2), SizeValue, SizeValue);
+    }
+          if(TipValue == 9) {
+      theApplet.strokeWeight(0);
+      theApplet.image(airplane2, 200 - (SizeValue/2), 300 - (SizeValue/2), SizeValue, SizeValue);
     }
 
     // a rectangle will be drawn if the mouse has been

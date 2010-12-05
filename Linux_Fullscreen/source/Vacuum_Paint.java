@@ -35,6 +35,15 @@ PImage star2;
 PImage clver;
 PImage sve;
 PImage cpen;
+PImage airplane1;
+PImage airplane2;
+PShape cps;
+PShape star1s;
+PShape star2s;
+PShape sves;
+PShape cpens;
+PShape airplane1s;
+PShape airplane2s;
 DropdownList p1;
 boolean shown = true;
 boolean Detonated;
@@ -54,6 +63,7 @@ String Reset;
 String Happy;
 String Starlight1;
 String Starlight2;
+public String Where;
 Button b;
 public int buttonValue = 0;
 // this example demonstrates how to use a ControlWindowCanvas 
@@ -73,19 +83,25 @@ public void setup() {
   star2 = loadImage("star2.tga");
   cpen = loadImage("cpen.tga");
   clver = loadImage("clver.tga");
-  controlWindow = controlP5.addControlWindow("Attributes",100,100,400,400,30);
+  airplane1 = loadImage("airplane1.tga");
+  airplane2 = loadImage("airplane2.tga");
+  controlWindow = controlP5.addControlWindow("Attributes",100,100,500,400,30);
   controlWindow.setUpdateMode(ControlWindow.NORMAL);
   controlWindow.hideCoordinates();
   Controller mySlider = controlP5.addSlider("SizeValue",0,400,0,170,400,10);
   Controller mySlider1 = controlP5.addSlider("TransValue",0,255,0,190,255,10);
-  Controller mySlider2 = controlP5.addSlider("TipValue",1,7,0,210,400,10);
+  Controller mySlider2 = controlP5.addSlider("TipValue",1,9,0,210,400,10);
   Controller hi = controlP5.addButton("Reset",0,220,0,80,19);
   Controller ccpen = controlP5.addButton("Grab_Color",0,300,0,80,19);
+  Controller Save = controlP5.addButton("Save",0,300,19,80,19);
+  Controller Savel = controlP5.addTextfield("Where_To_Save",400,0,100,20);
   mySlider.setWindow(controlWindow);
   mySlider1.setWindow(controlWindow);
   mySlider2.setWindow(controlWindow);
   hi.setWindow(controlWindow);
   ccpen.setWindow(controlWindow);
+  Savel.setWindow(controlWindow);
+  Save.setWindow(controlWindow);
 
 
 
@@ -109,6 +125,9 @@ public void draw() {
     grabstart = false;
     }
     if(mouseX != mx || mouseY != my) {
+      
+      
+      
       image(sve, 0, 0);
       image(cpen,mouseX,mouseY-160);
       mx = mouseX;
@@ -123,9 +142,9 @@ public void draw() {
       cursor();
       grab = false;
     }
-      
+     
 }
-
+ 
 }
 public void mouseDragged() {
   if(TipValue == 1) {
@@ -145,15 +164,23 @@ public void mouseDragged() {
   }
   if(TipValue == 5) {
     strokeWeight(0);
-    image(star1, mouseX - 98, mouseY - 94);
+    image(star1, mouseX-(SizeValue/2), mouseY -(SizeValue/2), SizeValue, SizeValue);
   }
   if(TipValue == 6) {
     strokeWeight(0);
-    image(star2, mouseX - 98, mouseY - 94);
+    image(star2, mouseX-(SizeValue/2), mouseY -(SizeValue/2), SizeValue, SizeValue);
   }
     if(TipValue == 7) {
     strokeWeight(0);
-    image(clver, mouseX - 74, mouseY - 80);
+    image(clver, mouseX-(SizeValue/2), mouseY -(SizeValue/2), SizeValue, SizeValue);
+  }
+      if(TipValue == 8) {
+    strokeWeight(0);
+    image(airplane1, mouseX-(SizeValue/2), mouseY -(SizeValue/2), SizeValue, SizeValue);
+  }
+      if(TipValue == 9) {
+    strokeWeight(0);
+    image(airplane2, mouseX-(SizeValue/2), mouseY -(SizeValue/2), SizeValue, SizeValue);
   }
 }
 public void mousePressed() {
@@ -174,15 +201,23 @@ public void mousePressed() {
   }
   if(TipValue == 5) {
     strokeWeight(0);
-    image(star1, mouseX - 98, mouseY - 94);
+    image(star1, mouseX-(SizeValue/2), mouseY -(SizeValue/2), SizeValue, SizeValue);
   }
   if(TipValue == 6) {
     strokeWeight(0);
-    image(star2, mouseX - 98, mouseY - 94);
+    image(star2, mouseX-(SizeValue/2), mouseY -(SizeValue/2), SizeValue, SizeValue);
   }
       if(TipValue == 7) {
     strokeWeight(0);
-    image(clver, mouseX - 74, mouseY - 80);
+    image(clver, mouseX-(SizeValue/2), mouseY -(SizeValue/2), SizeValue, SizeValue);
+  }
+        if(TipValue == 8) {
+    strokeWeight(0);
+    image(airplane1, mouseX-(SizeValue/2), mouseY -(SizeValue/2), SizeValue, SizeValue);
+  }
+      if(TipValue == 9) {
+    strokeWeight(0);
+    image(airplane2, mouseX-(SizeValue/2), mouseY -(SizeValue/2), SizeValue, SizeValue);
   }
 }
 
@@ -208,6 +243,18 @@ public void Grab_Color(int theValue) {
   grab = true;
   grabstart = true;
 
+}
+public void Save(int theValue) {
+  println("a button event from buttonB: "+theValue);
+  println("Saving");
+  saveFrame(Where);
+
+}
+public void Where_To_Save(String theText) {
+  // receiving text from controller texting
+  println("a textfield event for controller 'texting': "+theText);
+  println("editing");
+  Where = theText;
 }
 class MyCanvas extends ControlWindowCanvas {
 
@@ -240,15 +287,23 @@ class MyCanvas extends ControlWindowCanvas {
     }
       if(TipValue == 5) {
       theApplet.strokeWeight(0);
-      theApplet.image(star1, 200, 300);
+      theApplet.image(star1, 200 - (SizeValue/2), 300 - (SizeValue/2), SizeValue, SizeValue);
     }
       if(TipValue == 6) {
       theApplet.strokeWeight(0);
-      theApplet.image(star2, 200, 300);
+      theApplet.image(star2, 200 - (SizeValue/2), 300 - (SizeValue/2), SizeValue, SizeValue);
     }
           if(TipValue == 7) {
       theApplet.strokeWeight(0);
-      theApplet.image(clver, 200, 300);
+      theApplet.image(clver, 200 - (SizeValue/2), 300 - (SizeValue/2), SizeValue, SizeValue);
+    }
+          if(TipValue == 8) {
+      theApplet.strokeWeight(0);
+      theApplet.image(airplane1, 200 - (SizeValue/2), 300 - (SizeValue/2), SizeValue, SizeValue);
+    }
+          if(TipValue == 9) {
+      theApplet.strokeWeight(0);
+      theApplet.image(airplane2, 200 - (SizeValue/2), 300 - (SizeValue/2), SizeValue, SizeValue);
     }
 
     // a rectangle will be drawn if the mouse has been
