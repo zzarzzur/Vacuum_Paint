@@ -54,7 +54,7 @@ public int buttonValue = 0;
 
 
 void setup() {
-  size(1280,1024);
+  size(screen.width, screen.height);
   frameRate(30);
   controlP5 = new ControlP5(this);
   cp = loadImage("color.jpg");
