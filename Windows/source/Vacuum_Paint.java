@@ -19,6 +19,29 @@ import java.util.regex.*;
 
 public class Vacuum_Paint extends PApplet {
 
+/*
+Name: Vacuum_Paint
+Version: Update V1.003
+    Copyright (C) 2010  Omar Zarzur
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+
+
+
+
 
 ControlP5 controlP5;
 ControlWindow controlWindow;
@@ -256,6 +279,24 @@ public void Where_To_Save(String theText) {
   println("editing");
   Where = theText;
 }
+/*
+Name: Vacuum_Paint
+Version: Update V1.003
+    Copyright (C) 2010  Omar Zarzur
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 class MyCanvas extends ControlWindowCanvas {
 
   public void draw(PApplet theApplet) {
